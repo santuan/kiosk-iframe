@@ -39,6 +39,7 @@
   "window": {
     "icon": "app.png",
     "toolbar": true,
-    "kiosk": true
+    "kiosk": true,
+    "always-on-top": true
   }
 }

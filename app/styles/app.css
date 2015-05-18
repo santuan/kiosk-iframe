@@ -20,6 +20,17 @@ iframe {
 	font-family: sans-serif;
 }
 
+.operator-number {
+  position: fixed;
+  top: 1px;
+  z-index: 999999;
+  right: 70px;
+  background: #FFFFFF;
+  font-family: sans-serif;
+  width: 50px;
+  font-size: 18px;
+}
+
 .close-app:hover {
 	background: #c9302c; 
 }

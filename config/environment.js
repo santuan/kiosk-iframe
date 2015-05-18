@@ -19,6 +19,11 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['adapter'] = {
+    'host': 'http://irrversible.cc:1337',
+    'namespace': 'api'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
