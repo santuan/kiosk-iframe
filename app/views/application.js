@@ -4,7 +4,7 @@ export default Ember.View.extend({
 	operatorNumber: '',
 	fullName: '',
 	dni: '',
-	lineNumber: '100',
+	lineNumber: 'CIEN',
 	sex: 'Masculino',
 
 	operatorNumberChanged: function () {
@@ -29,7 +29,7 @@ export default Ember.View.extend({
 			 	$('frame[name="botonera"]', content).load(function(){
 					$('a[onclick="do_grabar();"]', this.contentDocument).click(function () {
 						if (_this.get('operatorNumber') && _this.get('fullName') && _this.get('dni') && _this.get('lineNumber') && _this.get('sex')) {
-							_this.get('store').createRecord('aval', {
+							_this.get('controller.store').createRecord('aval', {
 								operatorNumber: _this.get('operatorNumber'),
 								lineNumber: _this.get('lineNumber'),
 								fullName: _this.get('fullName'),

@@ -20,7 +20,7 @@ module.exports = function(environment) {
   };
 
   ENV['adapter'] = {
-    'host': 'http://irrversible.cc:1337',
+    'host': 'http://45.55.137.6:1337',
     'namespace': 'api'
   };
 
