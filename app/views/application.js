@@ -30,8 +30,8 @@ export default Ember.View.extend({
 					$('a[onclick="do_grabar();"]', this.contentDocument).click(function () {
 						if (_this.get('operatorNumber') && _this.get('fullName') && _this.get('dni') && _this.get('lineNumber') && _this.get('sex')) {
 							_this.get('controller.store').createRecord('aval', {
-								operatorNumber: _this.get('operatorNumber'),
-								lineNumber: _this.get('lineNumber'),
+								operatorNumber: _this.get('operatorNumber').trim(),
+								lineNumber: _this.get('lineNumber').trim(),
 								fullName: _this.get('fullName'),
 								dni: _this.get('dni'),
 								sex: _this.get('sex')
