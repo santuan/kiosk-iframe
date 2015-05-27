@@ -12,6 +12,6 @@ export default Ember.Route.extend({
 			var gui = require('nw.gui');
 			gui.Window.get().leaveKioskMode();
 			gui.App.quit();
-		}
+		}		
 	}
 });

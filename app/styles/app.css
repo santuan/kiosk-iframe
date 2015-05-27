@@ -20,6 +20,18 @@ iframe {
 	font-family: sans-serif;
 }
 
+.scan-app {
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	right: 150px;
+	background: #d9534f;
+	padding: 5px 20px;
+	text-decoration: none;
+	color: #fff;
+	font-family: sans-serif;
+}
+
 .operator-number {
   position: fixed;
   top: 1px;
