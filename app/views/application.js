@@ -8,6 +8,8 @@ export default Ember.View.extend({
 	sex: 'Masculino',
 
 	formStatus: null,
+	isEdit: false,
+	isSporting: false,
 
 
 	actions: {
@@ -17,19 +19,30 @@ export default Ember.View.extend({
 			if ($('tr', this.get('formStatus'))) {
 				var h4Line = $('h4 ', this.get('formStatus'))[3];
 				var lineNumber = $($(h4Line).find("center")).text().replace('LINEA INTERNA: ', '').trim();
-
+				var promises = [];
+				this.set('isSporting', true);
 				$('tr', this.get('formStatus')).each(function () {
 					if ($(this).find("td").length > 0) {
-						_this.get('controller.store').createRecord('aval-status', {
+						promises.pushObject(_this.get('controller.store').createRecord('aval-status', {
 							lineNumber: lineNumber,
 							sectionNumber: $($(this).find("td")[0]).text().trim(),
 							townName: $($(this).find("td")[1]).text().trim().substring(4),
 							avalesEntry: $($(this).find("td")[2]).text().trim(),
 							avalesNeed: $($(this).find("td")[3]).text().trim()
-						}).save();						
+						}).save());						
 					}
 				});
+				Promise.all(promises).then(function(values){
+					_this.get('controller.store').createRecord('activity', {
+						lineNumber: lineNumber
+					}).save();
+					_this.set('isSporting', false);
+				});				
 			}
+		},
+
+		toggleEdit: function () {
+			this.toggleProperty('isEdit');
 		}		
 	},
 

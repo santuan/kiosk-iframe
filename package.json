@@ -34,6 +34,8 @@
     "ember-data": "1.0.0-beta.15",
     "ember-data-sails": "0.0.15",
     "ember-export-application-global": "^1.0.2",
+    "ember-fryctoria": "1.0.0-alpha.1",
+    "ember-localforage-adapter": "0.7.1",
     "nw": "0.12.1"
   },
   "main": "dist/index.html",

@@ -1,5 +1,14 @@
-{{input type="text" value=view.operatorNumber class="operator-number"}}
-<a {{action 'scan' target="view"}} class="scan-app">Exportar</a>
+{{#if view.isEdit}}
+	{{input type="text" value=view.operatorNumber class="operator-number"}} <a class="close-edit" {{action "toggleEdit" target="view"}}>x</a>
+{{else}}
+	<label class="operator-number" {{action 'toggleEdit' target="view"}}>{{view.operatorNumber}}</label>
+{{/if}}
+
+{{#if view.isSporting}}
+	<a class="scan-app">Exportando...</a>
+{{else}}
+	<a {{action 'scan' target="view"}} class="scan-app">Exportar</a>
+{{/if}}
 <a {{action 'close'}} class="close-app">x</a>
 
 <iframe src="http://www.juntaelectoral.gba.gov.ar/sistemas/epaos/login.php" frameborder="0" id="avales"></iframe>
