@@ -14,16 +14,30 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      emberDataSails:  {
+        // default is to use same host and port as the ember app:
+        host: 'http://45.55.137.6:1337',
+        // this is the default and is the path to the sails io script:
+        scriptPath: '/js/dependencies/sails.io.js'
+      }   
     }
   };
 
   ENV['adapter'] = {
-    'host': 'http://181.164.86.99:1337',
+    'host': 'http://45.55.137.6:1337',
     'namespace': 'api'
   };
-
+  
+  ENV['contentSecurityPolicy'] = {
+      'default-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'script-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'font-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'connect-src': "*",
+      'img-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'style-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'media-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'report-uri': 'http://irreversible.cc'
+  };
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
