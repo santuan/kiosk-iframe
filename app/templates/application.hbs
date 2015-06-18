@@ -6,9 +6,13 @@
 
 {{#if view.isSporting}}
 	<a class="scan-app">Exportando...</a>
+	<a class="scan-app-secc">Exportando</a>
 {{else}}
 	<a {{action 'scan' target="view"}} class="scan-app">Exportar</a>
+	<a {{action 'scanSecc' target="view"}} class="scan-app-secc">Exportar seccionales</a>
 {{/if}}
+
+
 <a {{action 'close'}} class="close-app">x</a>
 
 <iframe src="http://www.juntaelectoral.gba.gov.ar/sistemas/epaos/login.php" frameborder="0" id="avales"></iframe>

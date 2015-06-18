@@ -32,17 +32,16 @@
     "ember-cli-qunit": "0.3.9",
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.15",
-    "ember-data-sails": "0.0.15",
     "ember-export-application-global": "^1.0.2",
-    "ember-fryctoria": "1.0.0-alpha.1",
-    "ember-localforage-adapter": "0.7.1",
     "nw": "0.12.1"
   },
   "main": "dist/index.html",
   "window": {
     "icon": "app.png",
-    "toolbar": true,
-    "kiosk": true,
-    "always-on-top": true
+    "toolbar": false,
+    "kiosk": false,
+    "always-on-top": false,
+    "fullscreen": true,
+    "frame": false
   }
 }

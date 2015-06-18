@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-	operatorNumber: '',
+	operatorNumber: '000',
 	fullName: '',
 	dni: '',
 	lineNumber: 'CIEN',
@@ -40,6 +40,35 @@ export default Ember.View.extend({
 				});				
 			}
 		},
+
+		scanSecc: function () {
+			var status = [];
+			var _this = this;
+			if ($('tr', this.get('formStatus'))) {
+				var h4Line = $('h4 ', this.get('formStatus'))[3];
+				var lineNumber = $($(h4Line).find("center")).text().replace('LINEA INTERNA: ', '').trim() + " (SECC)";
+				var promises = [];
+				this.set('isSporting', true);
+				$('tr', this.get('formStatus')).each(function () {
+					if ($(this).find("td").length > 0) {
+						promises.pushObject(_this.get('controller.store').createRecord('aval-status', {
+							lineNumber: lineNumber,
+							sectionNumber: $($(this).find("td")[0]).text().trim(),
+							townName: $($(this).find("td")[1]).text().trim().substring(4),
+							avalesEntry: $($(this).find("td")[2]).text().trim(),
+							avalesNeed: $($(this).find("td")[3]).text().trim()
+						}).save());						
+					}
+				});
+				Promise.all(promises).then(function(values){
+					_this.get('controller.store').createRecord('activity', {
+						lineNumber: lineNumber
+					}).save();
+					_this.set('isSporting', false);
+				});				
+			}
+		},
+
 
 		toggleEdit: function () {
 			this.toggleProperty('isEdit');

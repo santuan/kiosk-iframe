@@ -16,7 +16,7 @@ module.exports = function(environment) {
     APP: {
       emberDataSails:  {
         // default is to use same host and port as the ember app:
-        host: 'http://45.55.137.6:1337',
+        host: 'http://45.55.137.6:8080',
         // this is the default and is the path to the sails io script:
         scriptPath: '/js/dependencies/sails.io.js'
       }   
@@ -24,7 +24,7 @@ module.exports = function(environment) {
   };
 
   ENV['adapter'] = {
-    'host': 'http://45.55.137.6:1337',
+    'host': 'http://45.55.137.6:8080',
     'namespace': 'api'
   };
   
